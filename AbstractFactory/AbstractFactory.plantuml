@@ -1,0 +1,131 @@
+@startuml AbstractFactory
+package com.kochar.singh.rajbir.Vehicals{
+    interface Vehical{
+        +{abstract}Car():void
+    }
+}
+package com.kochar,singh.rajbir.factory{
+    interface CarFactory{
+        +{abstract}getVehical():Vehical
+    }
+    class AbstractFactory{
+    + {static} byte FORD = 101
+    + {static} byte VOLKSWAGON = 102
+    + {static} byte HONDA = 103
+    + {static} getFactory():CarFactory
+    }
+    class AbstractFactoryNew{
+    + {static} byte MAHINDRA = 104
+    + {static} getFactory():CarFactory
+    }
+    AbstractFactory -* CarFactory
+    AbstractFactory --> AbstractFactoryNew
+}
+package com.kochar.singh.rajbir.vw{
+    class Ameo{
+        +car():void
+    }
+    class Vento{
+        +car():void
+    }
+    class Polo{ 
+        +car():void 
+    }
+    class VwFactory{
+        + {static} short AMEO 11
+        + {static} short VENTO 22
+        + {static} short POLO 33
+        + {static} getVehical(short):Vehical
+    }
+    Ameo -up-> Vehical
+    Vento -up-> Vehical
+    Polo -up-> Vehical
+    
+    Ameo *-- VwFactory 
+    Vento *-- VwFactory 
+    Polo *-- VwFactory 
+
+    VwFactory --> CarFactory
+}
+
+package com.kochar.singh.rajbir.ford{
+    class Figo{
+        +car():void
+    }
+    class FigoSedan{
+        +car():void
+    }
+    class Mustang{ 
+        +car():void 
+    }
+    class FordFactory{
+        + {static} short FIGO 11
+        + {static} short FIGOSEDAN 22
+        + {static} short MUSTANG 33
+        + {static} getVehical(short):Vehical
+    }
+    Figo -up-> Vehical
+    FigoSedan -up-> Vehical
+    Mustang -up-> Vehical
+
+    Figo *-- FordFactory 
+    FigoSedan *-- FordFactory 
+    Mustang *-- FordFactory 
+
+    FordFactory --> CarFactory
+}
+
+package com.kochar.singh.rajbir.honda{
+  class City{
+        +car():void
+    }
+    class Amaze{
+        +car():void
+    }
+    class Civic{ 
+        +car():void 
+    }
+    class HondaFactory{
+        + {static} short CITY 111
+        + {static} short AMAZE 22
+        + {static} short CIVIC 33
+        + {static} getVehical(short):Vehical
+    }
+    City -up-> Vehical
+    Amaze -up-> Vehical
+    Civic -up-> Vehical
+
+    City *-- HondaFactory 
+    Amaze *-- HondaFactory 
+    Civic *-- HondaFactory 
+
+  HondaFactory -up-> CarFactory
+
+}
+package com.kochar.singh.rajbir.mahindra{
+    class XUV5OO{
+        +car():void
+    }
+    class Scrpio{
+        +car():void
+    }
+    class Bolero{ 
+        +car():void 
+    }
+    class MahindraFactory{
+        + {static} short XUV5OO 1111
+        + {static} short SCRPIO 2222
+        + {static} short BOLERO 3333
+        + {static} getVehical(short):Vehical
+    }
+    XUV5OO -up-> Vehical
+    Scrpio -up-> Vehical
+    Bolero -up-> Vehical
+
+    XUV5OO *-- MahindraFactory 
+    Scrpio *-- MahindraFactory 
+    Bolero *-- MahindraFactory 
+
+    MahindraFactory -up-> CarFactory
+}
+@enduml
