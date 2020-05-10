@@ -1,3 +1,5 @@
+#Hidden files
+.*
 # Compiled class file
 *.class
 
