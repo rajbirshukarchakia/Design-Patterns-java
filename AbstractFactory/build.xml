@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="ABSTRACTFACTORY" default="run">
     <property name="source.dir" value="."/>
-    <property name="compiler" value="javac1.9"/>
-    <property name="source" value="1.8"/>
-    <property name="target" value="1.8"/>
-    <property name="bootclasspath" value="${java.home}\lib\rt.jar"/>
+    <property name="bootclasspath" value="${java.home}/lib/rjrt-fs.jar"/>
     <target name="run" depends="compile">
         <java classname="Demo">
             <classpath path="${source.dir}/build"></classpath>
@@ -16,15 +13,13 @@
         <javac  srcdir="${source.dir}/src" 
                 includeantruntime="true" 
                 destdir="build" 
-		source="${source}"
-                target="${target}"
-		bootclasspath="${bootclasspath}"/>
+		/>
     </target>
 
    <target name="clean">
         <delete dir="build"/>
-    <echo>${bootclasspath}</echo>
+	<!--   <echo>${bootclasspath}</echo>
         <echo>${java.home}</echo>
-        <echo>build.compiler</echo>
+	<echo>build.compiler</echo> -->
     </target> 
 </project>
